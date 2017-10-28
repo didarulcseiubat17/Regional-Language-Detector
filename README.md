@@ -1,4 +1,4 @@
-# Location-Detector
+# Regional-Language-Detector
 
 A region and location detecting application using a tri-combination of Google's TensorFlow Object Detection API,  Convolutional Recurrent Neural Network (CRNN) and a 2-layered Neural Network for language classification.
 
