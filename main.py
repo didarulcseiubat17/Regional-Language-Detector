@@ -42,7 +42,7 @@ def process_img(image,output_q2, im_width, im_height):
         print('---------------------------------------------------')
         crop_img = cv2.cvtColor(crop_img, cv2.COLOR_RGB2BGR)
         cv2.imshow('Video', crop_img)
-        cv2.imwrite('out.jpg',crop_img)
+        cv2.imwrite(os.path.join('/home/manish/Location_Detector/crop' , 'out.jpg'),crop_img)
         images.append(crop_img)
     return images
 
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     pool = Pool(args.num_workers, worker, (input_q, output_q))
 
      # fps._numFrames < 120
-    frame = cv2.imread('Enter Image Path')
+    frame = cv2.imread('Enter image path')
     input_q.put(frame)
 
     t = time.time()
