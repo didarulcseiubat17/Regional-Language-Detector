@@ -3,6 +3,7 @@ import language_classifier
 import crnn.utils as utils
 import crnn.dataset as dataset
 import torch
+import cv2 #-----
 from torch.autograd import Variable
 from PIL import Image
 import crnn.models.crnn as crnn
@@ -18,8 +19,8 @@ def process_img(images):
     model.load_state_dict(torch.load(model_path))
     converter = utils.strLabelConverter(alphabet)
     transformer = dataset.resizeNormalize((100, 32))
-    for image in images:
-        image = Image.fromarray(image).convert('L')
+    for img_path in glob.glob('crop/*.jpg'):
+        image = Image.open(img_path).convert('L')
         image = transformer(image)
         image = image.view(1, *image.size())
         image = Variable(image)
